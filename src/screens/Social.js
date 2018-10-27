@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {  StyleSheet, Text, View, Alert, Button } from 'react-native';
 import { GoogleSignin, GoogleSigninButton, statusCodes } from 'react-native-google-signin';
 
-export default class Social extends Component {
+export default class GooggleLogin extends Component {
   constructor(props) {
     super(props);
     this.state = {

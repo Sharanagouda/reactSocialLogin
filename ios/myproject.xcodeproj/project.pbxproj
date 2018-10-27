@@ -43,6 +43,7 @@
 		3702197FDC9846D7B75D114F /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF18D21B412412B93531C3F /* SafariServices.framework */; };
 		59FA9B96CCB94AEE86C2FDF8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1243167CB02B488B8B81D535 /* SystemConfiguration.framework */; };
 		6FD2575983E0449DBBA51807 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD268BC7FBA442EADB5F1A4 /* AddressBook.framework */; };
+		4C6D9E1434254A55BDCD0986 /* libRNCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D653778252A7432EBE7FFF81 /* libRNCamera.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -356,6 +357,8 @@
 		CFF18D21B412412B93531C3F /* SafariServices.framework */ = {isa = PBXFileReference; name = "SafariServices.framework"; path = "System/Library/Frameworks/SafariServices.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		1243167CB02B488B8B81D535 /* SystemConfiguration.framework */ = {isa = PBXFileReference; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		AAD268BC7FBA442EADB5F1A4 /* AddressBook.framework */ = {isa = PBXFileReference; name = "AddressBook.framework"; path = "System/Library/Frameworks/AddressBook.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		2C21EE34996F49DD8D6D3521 /* RNCamera.xcodeproj */ = {isa = PBXFileReference; name = "RNCamera.xcodeproj"; path = "../node_modules/react-native-camera/ios/RNCamera.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		D653778252A7432EBE7FFF81 /* libRNCamera.a */ = {isa = PBXFileReference; name = "libRNCamera.a"; path = "libRNCamera.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +392,7 @@
 				3702197FDC9846D7B75D114F /* SafariServices.framework in Frameworks */,
 				59FA9B96CCB94AEE86C2FDF8 /* SystemConfiguration.framework in Frameworks */,
 				6FD2575983E0449DBBA51807 /* AddressBook.framework in Frameworks */,
+				4C6D9E1434254A55BDCD0986 /* libRNCamera.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +585,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				4AD0A439DB50495F84266698 /* RCTFBSDK.xcodeproj */,
 				CB92221B154E4842BCCAA550 /* RNGoogleSignin.xcodeproj */,
+				2C21EE34996F49DD8D6D3521 /* RNCamera.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1210,11 +1215,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-fbsdk\ios\RCTFBSDK/**",
 					"$(SRCROOT)\..\node_modules\react-native-google-signin\ios\RNGoogleSignin/**",
+					"$(SRCROOT)\..\node_modules\react-native-camera\ios/**",
 				);
 			};
 			name = Debug;
@@ -1238,11 +1245,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-fbsdk\ios\RCTFBSDK/**",
 					"$(SRCROOT)\..\node_modules\react-native-google-signin\ios\RNGoogleSignin/**",
+					"$(SRCROOT)\..\node_modules\react-native-camera\ios/**",
 				);
 			};
 			name = Release;
@@ -1267,6 +1276,7 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-fbsdk\ios\RCTFBSDK/**",
 					"$(SRCROOT)\..\node_modules\react-native-google-signin\ios\RNGoogleSignin/**",
+					"$(SRCROOT)\..\node_modules\react-native-camera\ios/**",
 				);
 			};
 			name = Debug;
@@ -1290,6 +1300,7 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-fbsdk\ios\RCTFBSDK/**",
 					"$(SRCROOT)\..\node_modules\react-native-google-signin\ios\RNGoogleSignin/**",
+					"$(SRCROOT)\..\node_modules\react-native-camera\ios/**",
 				);
 			};
 			name = Release;
@@ -1321,11 +1332,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-fbsdk\ios\RCTFBSDK/**",
 					"$(SRCROOT)\..\node_modules\react-native-google-signin\ios\RNGoogleSignin/**",
+					"$(SRCROOT)\..\node_modules\react-native-camera\ios/**",
 				);
 			};
 			name = Debug;
@@ -1357,11 +1370,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-fbsdk\ios\RCTFBSDK/**",
 					"$(SRCROOT)\..\node_modules\react-native-google-signin\ios\RNGoogleSignin/**",
+					"$(SRCROOT)\..\node_modules\react-native-camera\ios/**",
 				);
 			};
 			name = Release;
@@ -1392,11 +1407,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-fbsdk\ios\RCTFBSDK/**",
 					"$(SRCROOT)\..\node_modules\react-native-google-signin\ios\RNGoogleSignin/**",
+					"$(SRCROOT)\..\node_modules\react-native-camera\ios/**",
 				);
 			};
 			name = Debug;
@@ -1427,11 +1444,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-fbsdk\ios\RCTFBSDK/**",
 					"$(SRCROOT)\..\node_modules\react-native-google-signin\ios\RNGoogleSignin/**",
+					"$(SRCROOT)\..\node_modules\react-native-camera\ios/**",
 				);
 			};
 			name = Release;
