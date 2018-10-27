@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Actions} from 'react-native-router-flux'
 import { Platform, StyleSheet, View, Text, Modal, Button, TouchableOpacity, Alert } from 'react-native';
 import RadioGroup from 'react-native-radio-buttons-group';
+import LocationServicesDialogBox from "react-native-android-location-services-dialog-box";
+
 export default class CustomAlert extends Component {
 
   constructor(props) {
@@ -62,6 +64,29 @@ export default class CustomAlert extends Component {
    
   }
 
+  async checkIsLocation() {
+    let check = await LocationServicesDialogBox.checkLocationServicesIsEnabled(
+     
+       { message:  "<h2>Allow Geo Location ?</h2>EuroGarage App Uses your GPS in order to suggest nearby stations<br/><br/>",
+     //     message: "<font color='#f1eb0a'>Use Location ?</font>",
+          ok: "Allow",
+          cancel: "Not allow",
+        style: { // (optional)
+ 
+             backgroundColor: '#87a9ea',// (optional)
+             
+             positiveButtonTextColor: '#ffffff',// (optional)
+             positiveButtonBackgroundColor: '#5fba7d',// (optional)
+             
+             negativeButtonTextColor: '#ffffff',// (optional)
+             negativeButtonBackgroundColor: '#ba5f5f'// (optional)
+          }
+     }
+      ).catch(error => error);
+ 
+     return Object.is(check, "enabled");
+ } 
+
 
   render() {
     return (
@@ -105,7 +130,9 @@ export default class CustomAlert extends Component {
    
           <Button onPress={() => { this.Ok_Custom_Alert(true) }} title="Custom Alert Dialog" />
            
-   
+          <TouchableOpacity onPress={this.checkIsLocation}>
+          <Text>turn on GPS</Text>
+         </TouchableOpacity>
         </View>
     );
   }
