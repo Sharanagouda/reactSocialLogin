@@ -29,12 +29,14 @@ export default class LoyaltyCards extends Component {
 }
   render() {
     return (
-        <Carousel layout={'tinder'} layoutCardOffset={9}
+        <Carousel layout={'tinder'} 
+        delay={2000}
         ref={(c) => { this._carousel = c; }}
         data={this.state.entries}
         renderItem={this._renderItem}
         sliderWidth={Dimensions.get('window').width-40}
         itemWidth={Dimensions.get('window').width-80}
+        
       />
     );
   }

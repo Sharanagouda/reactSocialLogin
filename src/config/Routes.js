@@ -10,6 +10,7 @@ import LoyaltyCardDetails from "../screens/LoyaltyCardDetails";
 import GoFuelCardDetails from "../screens/GoFuelCardDetails";
 import GoCards from '../screens/GoCards';
 import LoyaltyCards from '../screens/LoyaltyCards';
+import LandingScreen from '../screens/LandingScreen';
 
 class Routes extends Component {
 
@@ -18,6 +19,7 @@ class Routes extends Component {
     return (
         <Router>
         <Scene key="root" initial = {true}>
+          <Scene key="landingScreen" component={LandingScreen} title="Landing screen"/>
           <Scene key="loyaltyCards" component={LoyaltyCards} title="Loyalty cards"/>
           <Scene key="goCards" component={GoCards} title="Go Cards"/>
           <Scene key="home" component={Home} title="Home" />
