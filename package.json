@@ -14,7 +14,8 @@
     "react-native-fbsdk": "^0.8.0",
     "react-native-google-signin": "^1.0.0-rc6",
     "react-native-radio-buttons-group": "^1.0.7",
-    "react-native-router-flux": "^4.0.5"
+    "react-native-router-flux": "^4.0.5",
+    "react-native-snap-carousel": "^3.7.5"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",

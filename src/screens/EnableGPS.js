@@ -1,30 +1,127 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,TouchableOpacity} from 'react-native';
+import {Image, StyleSheet, Text,SectionList, View,TouchableOpacity,Dimensions} from 'react-native';
 import {Actions} from 'react-native-router-flux'
+import Carousel from 'react-native-snap-carousel';
 
-
-export default class EnableGPS extends Component {
+export default class GoFuelCard extends Component {
 
   constructor() {
     super();
+    this.state={
+      data:[
+        {
+          title:"CARD DETAILS", 
+          data:[
+            {key:1, name:'Sara macG'},
+            {key:1, name:'Exp: 08/23'},
+          ]
+        },
+        {
+          title:"BILLING ADDRESS", 
+          data:[
+            {key:1, name:'6363 Naragansette Ave,  Brooklyn NY. 10011, 6363 Naragansette Ave,  Brooklyn NY. 10011'},
+           
+          ]
+        },
+       
+      ]
+    }
   }
 
   render() {
     return (
-      <View style={styles.container}>
-      <Text>sdih</Text>
-      
-      </View>
+      <View style={{flex:1}}>
+        <View style={{flex:2}}>
+        <Image source={require('../assets/atm2.jpg')} style={{width:Dimensions.get('window').width-20, height:200,marginTop:10,borderRadius:26,marginLeft:10}}/>
+          </View>
+            <View style={[styles.container]}>
+              <SectionList
+                sections={this.state.data}
+                renderSectionHeader={({section}) => {
+                  return (
+                    <View style={styles.titleContainer}>
+                      <Text style={styles.title}>
+                        {section.title}
+                      </Text>
+                    </View>
+                  )
+                }}
+                renderItem={({item}) => {
+                  return (
+                    <View style={styles.settingListContainer}>
+                    <View style={styles.settingTitleView}>
+                        <Text style={styles.item} >{item.name}</Text>
+                    </View>
+                    <TouchableOpacity onPress={()=>{}}>
+                        <View style={styles.rightIconView}>
+                        <Image source={require('../assets/Arrow.png')} style={styles.settingIcons}  ></Image>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                
+                    )
+                }}/>
+              </View>
+              <View style={{ backgroundColor:"#efefef",borderWidth:1,borderColor:'#efefef',height:5}}>
+              </View>
+              <View style={{flex:.6,justifyContent:'center',alignItems:'center',backgroundColor:"#FFF"}}>
+              <TouchableOpacity onPress={()=>{alert('Are you sure you want to delete a card')}}>
+                  <View style={{borderWidth:1,borderColor:'#e84156',justifyContent:"center", width:Dimensions.get('window').width-40, height:40}}>
+                  <Text style={{fontSize:20, color:'#e84156', textAlign:'center'}}>Delete Card</Text>
+                </View>
+                </TouchableOpacity>
+              </View>
+              
+        </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+
+  titleContainer:{
+    backgroundColor:"#efefef",
+    padding:10
   },
+  title:{
+    fontSize:10,
+    color:"#000"
+  },
+  container: {
+    flex:2,backgroundColor:'#FFF',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
+  settingListContainer:{
+    flex:1,
+    flexDirection: 'row',
+    backgroundColor:"#FFF",
+    borderBottomColor:'red',
+    borderBottomWidth:3,
+    paddingHorizontal:8,
+    paddingVertical: 15,
+    justifyContent:"center",
+    marginBottom:-8
+ },
+ settingTitleView:{
+   flex:8,
+   justifyContent:'center',
+   textAlign:'center',
+ },
+ leftIconView:{
+   flex:1,
+   justifyContent:'flex-start',
+   alignItems:'center',
+   paddingTop:5,
+   paddingBottom:5
+ },
+ rightIconView:{
+   justifyContent:"center",
+   alignItems:"center"
+ },
+ settingIcons:{
+   height:20,
+   width:20
+ },
  
 });
