@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
-import {Image, StyleSheet, Text,SectionList, View,TouchableOpacity,Dimensions} from 'react-native';
+import {Image, StyleSheet,Switch, Text,SectionList, View,TouchableOpacity,Dimensions} from 'react-native';
 import {Actions} from 'react-native-router-flux'
 import Carousel from 'react-native-snap-carousel';
 
-export default class GoFuelCard extends Component {
+export default class GoFuelCardDetails extends Component {
 
   constructor() {
     super();
     this.state={
+      
+        switch1Value: false,
       data:[
         {
           title:"CARD DETAILS", 
@@ -17,9 +19,16 @@ export default class GoFuelCard extends Component {
           ]
         },
         {
-          title:"BILLING ADDRESS", 
+          title:"CARD SETTINGS", 
           data:[
-            {key:1, name:'6363 Naragansette Ave,  Brooklyn NY. 10011, 6363 Naragansette Ave,  Brooklyn NY. 10011'},
+            {key:1, name:'Set as default',subtagline:"setting the card as default for transactions"},
+           
+          ]
+        },
+        {
+          title:"BAR CARD", 
+          data:[
+            {key:1, name:'barcode'},
            
           ]
         },
@@ -27,46 +36,87 @@ export default class GoFuelCard extends Component {
       ]
     }
   }
+  toggleSwitch1 = (value) => {
+    this.setState({switch1Value: value})
+    console.log('Switch 1 is: ' + value)
+ }
 
   render() {
     return (
       <View style={{flex:1}}>
         <View style={{flex:2}}>
-        <Image source={require('../assets/atm2.jpg')} style={{width:Dimensions.get('window').width-20, height:200,marginTop:10,borderRadius:26,marginLeft:10}}/>
+        <Image source={require('../assets/atm1.jpg')} style={{width:Dimensions.get('window').width-20, height:180,marginTop:10,borderRadius:26,marginLeft:10}}/>
           </View>
             <View style={[styles.container]}>
               <SectionList
                 sections={this.state.data}
                 renderSectionHeader={({section}) => {
+                  if(section.title=="CARD SETTINGS"){
                   return (
                     <View style={styles.titleContainer}>
                       <Text style={styles.title}>
                         {section.title}
+
                       </Text>
                     </View>
-                  )
+                  )}
+                  else if(section.title != "CARD SETTINGS"){
+                    return(
+                      <View style={styles.titleContainer}>
+                      <Text style={styles.title}>
+                        {section.title}
+                      </Text>
+                    </View>
+                    )
+                  }
                 }}
                 renderItem={({item}) => {
+                  if(item.name=="Set as default"){
                   return (
                     <View style={styles.settingListContainer}>
                     <View style={styles.settingTitleView}>
                         <Text style={styles.item} >{item.name}</Text>
+                        <Text style={{fontSize:12}}>{item.subtagline}</Text>
                     </View>
                     <TouchableOpacity onPress={()=>{}}>
                         <View style={styles.rightIconView}>
-                        <Image source={require('../assets/Arrow.png')} style={styles.settingIcons}  ></Image>
+                        <Switch  onValueChange = {this.toggleSwitch1}
+                            value = {this.state.switch1Value}/>
                         </View>
                     </TouchableOpacity>
-                </View>
+                   </View>
                 
-                    )
+                    )}
+                    else if(item.name!="Set as Default" && item.name!="barcode"){
+                      return (
+                        <View style={styles.settingListContainer}>
+                        <View style={styles.settingTitleView}>
+                            <Text style={styles.item} >{item.name}</Text>
+                        </View>
+                        <TouchableOpacity onPress={()=>{}}>
+                            <View style={styles.rightIconView}>
+                            <Image source={require('../assets/Arrow.png')} style={styles.settingIcons}  ></Image>
+                            </View>
+                        </TouchableOpacity>
+                       </View>
+                    
+                        )
+                    }
+                    else if(item.name =="barcode"){
+                        return (
+                            <View style={[styles.settingListContainer,{justifyContent:"center",alignItems:"center"}]}>
+                      <Image source={require('../assets/barcode1.jpg')} style={{width:250,height:80}}  ></Image>
+                          </View>
+                        
+                            )
+                    }
                 }}/>
               </View>
               <View style={{ backgroundColor:"#efefef",borderWidth:1,borderColor:'#efefef',height:5}}>
               </View>
               <View style={{flex:.6,justifyContent:'center',alignItems:'center',backgroundColor:"#FFF"}}>
               <TouchableOpacity onPress={()=>{alert('Are you sure you want to delete a card')}}>
-                  <View style={{borderWidth:1,borderColor:'#e84156',justifyContent:"center", width:Dimensions.get('window').width-40, height:40}}>
+                  <View style={{justifyContent:"center", width:Dimensions.get('window').width-40, height:40}}>
                   <Text style={{fontSize:20, color:'#e84156', textAlign:'center'}}>Delete Card</Text>
                 </View>
                 </TouchableOpacity>
@@ -88,7 +138,7 @@ const styles = StyleSheet.create({
     color:"#000"
   },
   container: {
-    flex:2,backgroundColor:'#FFF',
+    flex:2.8,backgroundColor:'#FFF',
     flexDirection: 'row',
     alignItems: 'flex-start',
   },

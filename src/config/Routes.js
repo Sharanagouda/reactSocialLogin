@@ -5,8 +5,9 @@ import GooggleLogin from './../screens/Social';
 import FaceBookLogin from './../screens/SocialLogin';
 import BarCodeScanner from '../screens/BarCodeScanner';
 import CustomAlert from '../screens/CustomAlert';
-import GoFuelCard from "../screens/EnableGPS";
-
+import CreditAndDebitDetails from "../screens/CreditAndDebitDetails";
+import LoyaltyCardDetails from "../screens/LoyaltyCardDetails";
+import GoFuelCardDetails from "../screens/GoFuelCardDetails";
 class Routes extends Component {
 
   
@@ -14,7 +15,9 @@ class Routes extends Component {
     return (
         <Router>
         <Scene key="root" initial = {true}>
-          <Scene key="enableGps" component={GoFuelCard} title="Go Fuel Card"/>
+          <Scene key="goFuelCardDetails" component={GoFuelCardDetails} title="Go FuelCard Details"/>
+          <Scene key="loyaltyCardDetails" component={LoyaltyCardDetails} title="Loyalty Card Details"/>
+          <Scene key="enableGps" component={CreditAndDebitDetails} title="Go Fuel Card"/>
           <Scene key="customAlert" component={CustomAlert} title="Custom Alert" />
           <Scene key="home" component={Home} title="Home" />
           <Scene key="googinPage" component={GooggleLogin} title="Google login"/>
