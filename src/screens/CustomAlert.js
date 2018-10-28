@@ -129,10 +129,10 @@ export default class CustomAlert extends Component {
           </Modal>
    
           <Button onPress={() => { this.Ok_Custom_Alert(true) }} title="Custom Alert Dialog" />
-           
-          <TouchableOpacity onPress={this.checkIsLocation}>
-          <Text>turn on GPS</Text>
-         </TouchableOpacity>
+           <Text> To turn on GPS {'\n'}</Text>
+          
+          <Button title="turn on GPS" onPress={this.checkIsLocation}></Button>
+         
         </View>
     );
   }

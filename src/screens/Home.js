@@ -21,17 +21,57 @@ export default class Home extends Component {
   openBarCodeScannerPage(){
     Actions.barcodeScanner();
   }
+  openGoFuelCardDetails(){
+    Actions.goFuelCardDetails();
+
+  }
+  openLoyaltyCardDetails(){
+    Actions.loyaltyCardDetails();
+
+  }
+  openEnableGps(){
+    Actions.enableGps();
+
+  }
+  openCustomAlert(){
+    Actions.customAlert();
+
+  }
+  opengoCards(){
+    Actions.goCards();
+
+  }
+  openloyaltyCards(){
+    Actions.loyaltyCards();
+
+  }
+
   render() {
     return (
       <View style={styles.container}>
       <TouchableOpacity onPress={this.openSocialLogin}>
-      <Text>Facebook</Text>
+      <Text style={{fontSize:18}}>Facebook</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={this.openGoogleSignIn}>
-      <Text>Google</Text>
+      <Text style={{fontSize:18}}>Google</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={this.openBarCodeScannerPage}>
-      <Text>BarCode Scanner</Text>
+      <TouchableOpacity onPress={this.openCustomAlert}>
+      <Text style={{fontSize:18}}>Custom Alert</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={this.openGoFuelCardDetails}>
+      <Text style={{fontSize:18}}>Go Fuel card detail</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={this.openLoyaltyCardDetails}>
+      <Text style={{fontSize:18}}>loyalty Card Details</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={this.openEnableGps}>
+      <Text style={{fontSize:18}}>Go fuel card</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={this.opengoCards}>
+      <Text style={{fontSize:18}}>Go card</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={this.openloyaltyCards}>
+      <Text style={{fontSize:18}}>loyalty card</Text>
       </TouchableOpacity>
       </View>
     );
@@ -41,7 +81,6 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
