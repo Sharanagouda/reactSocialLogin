@@ -11,6 +11,8 @@ import GoFuelCardDetails from "../screens/GoFuelCardDetails";
 import GoCards from '../screens/GoCards';
 import LoyaltyCards from '../screens/LoyaltyCards';
 import LandingScreen from '../screens/LandingScreen';
+import SwitchImageScreen from '../screens/SwitchImageSceen';
+import ListGridViewScreen from '../screens/ListGridView';
 
 class Routes extends Component {
 
@@ -19,6 +21,9 @@ class Routes extends Component {
     return (
         <Router>
         <Scene key="root" initial = {true}>
+        <Scene key="home" component={Home} title="Home" />
+        <Scene key="listGridView" component={ListGridViewScreen} title="List Grid View" hideNavBar={true}/>
+        <Scene key="key" component={SwitchImageScreen} title="SwitchImage"/>
           <Scene key="landingScreen" component={LandingScreen} title="Landing screen"/>
           <Scene key="loyaltyCards" component={LoyaltyCards} title="Loyalty cards"/>
           <Scene key="goCards" component={GoCards} title="Go Cards"/>
